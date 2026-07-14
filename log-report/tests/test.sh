@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# pytest and pytest-json-ctrf are baked into the environment image
-# (environment/Dockerfile). Report results via /logs/verifier/reward.txt
-# and /logs/verifier/ctrf.json as required by the Harbor verifier contract.
+# pytest and its ctrf plugin are already baked into the environment image
+# so nothing gets installed here. The verifier reads the reward from
+# /logs/verifier/reward.txt and the test results from /logs/verifier/ctrf.json.
 
 mkdir -p /logs/verifier
 
