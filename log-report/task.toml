@@ -1,3 +1,4 @@
+# The declared artifact matches the file the task actually produces.
 artifacts = ["/app/report.json"]
 
 [task]
@@ -13,8 +14,8 @@ expert_time_estimate_hours = 0.3
 model_tested = "GPT-5.4"
 agent_tested = "Terminus-2"
 difficulty_explanation = "Parse a small access log and emit summary stats."
-solution_explanation = "Read the log, count total requests and unique IPs, then find the most requested path."
-verification_explanation = "Parse /app/report.json and compare total_requests, unique_ips and top_path against values computed from the log itself."
+solution_explanation = "Read the log, count requests and unique IPs, find the top path."
+verification_explanation = "Parse /app/report.json and compare total_requests, unique_ips and top_path against ground truth computed from the log."
 
 [verifier]
 timeout_sec = 120.0
@@ -28,5 +29,6 @@ cpus = 1
 memory_mb = 2048
 storage_mb = 10240
 gpus = 0
+# The task is solved entirely offline so no internet access is granted.
 allow_internet = false
 mcp_servers = []
